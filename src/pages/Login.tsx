@@ -122,12 +122,14 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Demo Credentials */}
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <p className="text-xs font-semibold text-blue-900 mb-2">🔐 Credenciais de Teste:</p>
-          <p className="text-xs text-blue-800">Email: <code className="bg-white px-2 py-1 rounded">demo@email.com</code></p>
-          <p className="text-xs text-blue-800">Senha: <code className="bg-white px-2 py-1 rounded">123456</code></p>
-        </div>
+        {/* Demo Credentials - Only shown in development */}
+        {import.meta.env.DEV && (
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-xs font-semibold text-blue-900 mb-2">🔐 Credenciais de Teste (Dev Only):</p>
+            <p className="text-xs text-blue-800">Email: <code className="bg-white px-2 py-1 rounded">demo@email.com</code></p>
+            <p className="text-xs text-blue-800">Senha: <code className="bg-white px-2 py-1 rounded">123456</code></p>
+          </div>
+        )}
       </motion.div>
     </div>
   );
