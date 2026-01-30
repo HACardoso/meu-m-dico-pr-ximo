@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { BottomNavigation } from '@/components/ui/BottomNavigation';
 import { DoctorCard } from '@/components/DoctorCard';
-import { mockDoctors, mockUser } from '@/data/mockData';
+import { mockDoctors } from '@/data/mockData';
+import { useAuth } from '@/contexts/AuthContext';
 import { motion } from 'framer-motion';
 
 const quickCategories = [
@@ -19,7 +20,9 @@ const quickCategories = [
 
 export default function Index() {
   const [searchQuery, setSearchQuery] = useState('');
+  const { user } = useAuth();
   const nearbyDoctors = mockDoctors.slice(0, 3);
+  const userName = user?.name ? user.name.split(' ')[0] : 'Usuário';
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -33,12 +36,12 @@ export default function Index() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <p className="text-white/80 text-sm">Olá,</p>
-              <h1 className="text-white text-xl font-bold">{mockUser.name.split(' ')[0]} 👋</h1>
+              <h1 className="text-white text-xl font-bold">{userName} 👋</h1>
             </div>
             <Link to="/profile">
               <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
                 <span className="text-white font-semibold text-lg">
-                  {mockUser.name.charAt(0)}
+                  {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
                 </span>
               </div>
             </Link>

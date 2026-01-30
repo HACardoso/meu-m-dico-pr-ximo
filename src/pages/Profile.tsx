@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   User, Mail, Phone, Calendar, CreditCard, Bell, Shield, 
   ChevronRight, LogOut, Settings, HelpCircle, FileText 
@@ -14,8 +15,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { BottomNavigation } from '@/components/ui/BottomNavigation';
-import { mockUser } from '@/data/mockData';
+import { useAuth } from '@/contexts/AuthContext';
 import { motion } from 'framer-motion';
 import { toast } from '@/hooks/use-toast';
 
@@ -29,7 +40,16 @@ const menuItems = [
 ];
 
 export default function Profile() {
-  const [user, setUser] = useState(mockUser);
+  const { user: authUser, logout } = useAuth();
+  const navigate = useNavigate();
+  const [user, setUser] = useState(authUser || {
+    id: '1',
+    name: 'Usuário',
+    email: 'usuario@email.com',
+    phone: '(11) 98765-4321',
+    cpf: '123.456.789-10',
+    birthDate: '1990-01-15',
+  });
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editForm, setEditForm] = useState(user);
   const [notifications, setNotifications] = useState(true);
@@ -40,6 +60,15 @@ export default function Profile() {
     toast({
       title: 'Perfil atualizado',
       description: 'Suas informações foram salvas com sucesso.',
+    });
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+    toast({
+      title: 'Desconectado',
+      description: 'Você foi desconectado com sucesso.',
     });
   };
 
@@ -211,17 +240,31 @@ export default function Profile() {
           transition={{ delay: 0.3 }}
           className="mt-4"
         >
-          <Button
-            variant="outline"
-            className="w-full rounded-xl text-destructive hover:text-destructive hover:bg-destructive/10"
-            onClick={() => toast({
-              title: 'Em breve',
-              description: 'Sistema de autenticação em desenvolvimento.',
-            })}
-          >
-            <LogOut className="w-4 h-4 mr-2" />
-            Sair da Conta
-          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button
+                variant="outline"
+                className="w-full rounded-xl text-destructive hover:text-destructive hover:bg-destructive/10"
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Sair da Conta
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent className="rounded-2xl">
+              <AlertDialogHeader>
+                <AlertDialogTitle>Sair da Conta</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Tem certeza de que deseja sair? Você precisará fazer login novamente para acessar sua conta.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <div className="flex gap-3">
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogAction onClick={handleLogout} className="bg-destructive">
+                  Sair
+                </AlertDialogAction>
+              </div>
+            </AlertDialogContent>
+          </AlertDialog>
         </motion.div>
 
         {/* Version */}
