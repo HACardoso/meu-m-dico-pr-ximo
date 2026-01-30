@@ -11,7 +11,8 @@ Um **sistema completo de autenticação** foi implementado no seu aplicativo "Se
 **URL:** `http://localhost:8081/login`
 
 Você pode:
-- Usar as credenciais de teste: 
+
+- Usar as credenciais de teste:
   - Email: `demo@email.com`
   - Senha: `123456`
 - Ou qualquer email com senha válida
@@ -32,6 +33,7 @@ Você pode:
 ### 3️⃣ Navegar no App
 
 Depois de autenticado, você pode:
+
 - 🏠 **Home** - Ver médicos próximos
 - 🔍 **Buscar** - Procurar por especialidade
 - 📅 **Consultas** - Ver suas consultas marcadas
@@ -46,17 +48,17 @@ Depois de autenticado, você pode:
 
 ## 📋 Funcionalidades Implementadas
 
-| Funcionalidade | Status | Descrição |
-|---|---|---|
-| Login | ✅ | Autenticação de usuário |
-| Registro | ✅ | Criar nova conta |
-| Logout | ✅ | Desconectar usuário |
-| Proteção de Rotas | ✅ | Apenas usuários logados acessam |
-| Persistência | ✅ | Usuário mantém login ao atualizar página |
-| Validações | ✅ | Email, senha, CPF, etc. |
-| Mensagens de Erro | ✅ | Feedback visual ao usuário |
-| Loading States | ✅ | Animações durante login/registro |
-| Perfil do Usuário | ✅ | Informações salvas e exibidas |
+| Funcionalidade    | Status | Descrição                                |
+| ----------------- | ------ | ---------------------------------------- |
+| Login             | ✅     | Autenticação de usuário                  |
+| Registro          | ✅     | Criar nova conta                         |
+| Logout            | ✅     | Desconectar usuário                      |
+| Proteção de Rotas | ✅     | Apenas usuários logados acessam          |
+| Persistência      | ✅     | Usuário mantém login ao atualizar página |
+| Validações        | ✅     | Email, senha, CPF, etc.                  |
+| Mensagens de Erro | ✅     | Feedback visual ao usuário               |
+| Loading States    | ✅     | Animações durante login/registro         |
+| Perfil do Usuário | ✅     | Informações salvas e exibidas            |
 
 ## 🔒 Segurança
 
@@ -84,6 +86,7 @@ src/
 ## 🧪 Teste os Casos
 
 ### Teste 1: Login com credenciais de teste
+
 ```
 1. Acesse http://localhost:8081/login
 2. Email: demo@email.com
@@ -93,6 +96,7 @@ src/
 ```
 
 ### Teste 2: Criar nova conta
+
 ```
 1. Clique em "Crie uma agora"
 2. Preencha com dados válidos
@@ -101,6 +105,7 @@ src/
 ```
 
 ### Teste 3: Refresh de página
+
 ```
 1. Faça login
 2. Pressione F5 para atualizar
@@ -108,6 +113,7 @@ src/
 ```
 
 ### Teste 4: Logout
+
 ```
 1. Vá para Perfil (ícone de usuário)
 2. Clique em "Sair da Conta"
@@ -116,6 +122,7 @@ src/
 ```
 
 ### Teste 5: Acesso sem autenticação
+
 ```
 1. Acesse http://localhost:8081/appointments
 2. Sem estar logado
@@ -168,17 +175,21 @@ Se quiser melhorar no futuro:
 ## 🐛 Troubleshooting
 
 **Problema:** "Não consigo fazer login"
+
 - **Solução:** Verifique se o email tem "@" e a senha tem mais de 6 caracteres
 
 **Problema:** "Fui deslogado ao atualizar"
+
 - **Solução:** Verifique se cookies/storage estão habilitados
 
 **Problema:** "Não consigo acessar as rotas"
+
 - **Solução:** Faça login primeiro. Rotas estão protegidas.
 
 ## 📞 Suporte
 
 Para mais informações:
+
 - Veja o arquivo `AUTHENTICATION.md` para detalhes técnicos
 - Veja o arquivo `AUTHENTICATION_FLOW.md` para diagramas de fluxo
 

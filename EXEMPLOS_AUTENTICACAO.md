@@ -366,25 +366,22 @@ export default function Navigation() {
 ```typescript
 // Para usar em chamadas à API futuramente:
 
-export async function fetchWithAuth(
-  url: string,
-  options: RequestInit = {}
-) {
-  const token = localStorage.getItem('authToken');
+export async function fetchWithAuth(url: string, options: RequestInit = {}) {
+  const token = localStorage.getItem("authToken");
 
   const headers = {
     ...options.headers,
-    'Content-Type': 'application/json',
-    ...(token && { 'Authorization': `Bearer ${token}` }),
+    "Content-Type": "application/json",
+    ...(token && { Authorization: `Bearer ${token}` }),
   };
 
   const response = await fetch(url, { ...options, headers });
 
   if (response.status === 401) {
     // Token expirou - fazer logout
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
-    window.location.href = '/login';
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
+    window.location.href = "/login";
   }
 
   return response;
@@ -404,7 +401,7 @@ export function isValidEmail(email: string): boolean {
 
 // Uso:
 if (!isValidEmail(email)) {
-  setError('Email inválido');
+  setError("Email inválido");
 }
 ```
 
@@ -413,7 +410,7 @@ if (!isValidEmail(email)) {
 ```typescript
 export function isValidCPF(cpf: string): boolean {
   // Remove caracteres especiais
-  const cleanCPF = cpf.replace(/\D/g, '');
+  const cleanCPF = cpf.replace(/\D/g, "");
 
   // Verifica se tem 11 dígitos
   return cleanCPF.length === 11;
@@ -421,7 +418,7 @@ export function isValidCPF(cpf: string): boolean {
 
 // Uso:
 if (!isValidCPF(cpf)) {
-  setError('CPF inválido');
+  setError("CPF inválido");
 }
 ```
 
@@ -433,20 +430,20 @@ async function loginTest() {
   const { login } = useAuth();
 
   try {
-    await login('demo@email.com', '123456');
-    console.log('Login bem-sucedido!');
+    await login("demo@email.com", "123456");
+    console.log("Login bem-sucedido!");
   } catch (error) {
-    console.error('Erro no login:', error);
+    console.error("Erro no login:", error);
   }
 }
 
 // Verificar localStorage
 function checkStorage() {
-  const user = localStorage.getItem('user');
-  const token = localStorage.getItem('authToken');
+  const user = localStorage.getItem("user");
+  const token = localStorage.getItem("authToken");
 
-  console.log('User:', user ? JSON.parse(user) : null);
-  console.log('Token:', token);
+  console.log("User:", user ? JSON.parse(user) : null);
+  console.log("Token:", token);
 }
 ```
 

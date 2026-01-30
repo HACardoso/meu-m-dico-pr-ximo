@@ -118,6 +118,7 @@
 ## 🔐 Componentes de Autenticação
 
 ### 1. AuthContext
+
 ```
 AuthProvider (Wrapper)
     ├── isAuthenticated: boolean
@@ -130,11 +131,13 @@ AuthProvider (Wrapper)
 ```
 
 ### 2. useAuth Hook
+
 ```typescript
 const { isAuthenticated, user, loading, login, logout, register } = useAuth();
 ```
 
 ### 3. ProtectedRoute
+
 ```
 <ProtectedRoute>
   ├── Se loading → <LoadingSpinner />
@@ -146,6 +149,7 @@ const { isAuthenticated, user, loading, login, logout, register } = useAuth();
 ## 📱 Fluxo de Páginas
 
 ### Não Autenticado
+
 ```
 Qualquer URL
     ↓
@@ -195,6 +199,7 @@ Redireciona para /login
 ```
 
 ### Autenticado
+
 ```
 Login/Register bem-sucedido
     ↓
@@ -255,18 +260,19 @@ localStorage = {
     email: "joao@email.com",
     phone: "(11) 98765-4321",
     cpf: "123.456.789-10",
-    birthDate: "1990-01-15"
-  })
-}
+    birthDate: "1990-01-15",
+  }),
+};
 
 // Após logout:
 
-localStorage = {} // Limpo completamente
+localStorage = {}; // Limpo completamente
 ```
 
 ## 🧪 Casos de Teste
 
 ### Caso 1: Novo usuário
+
 1. Acessa `/` sem token
 2. Redireciona para `/login`
 3. Clica em "Crie uma agora"
@@ -275,6 +281,7 @@ localStorage = {} // Limpo completamente
 6. ✅ Login automático + Redireciona para `/`
 
 ### Caso 2: Usuário existente
+
 1. Acessa `/login`
 2. Preenche email e senha
 3. Clica "Entrar"
@@ -282,6 +289,7 @@ localStorage = {} // Limpo completamente
 5. Volta a navegar normalmente
 
 ### Caso 3: Logout
+
 1. Em `/profile`
 2. Clica "Sair da Conta"
 3. Confirma no dialog
@@ -289,6 +297,7 @@ localStorage = {} // Limpo completamente
 5. localStorage limpo
 
 ### Caso 4: Refresh de página
+
 1. Usuário logado em `/`
 2. Atualiza página (F5)
 3. Verifica localStorage
@@ -296,6 +305,7 @@ localStorage = {} // Limpo completamente
 5. Não redireciona para login
 
 ### Caso 5: Acesso a rota protegida sem auth
+
 1. Usuário logado, limpa localStorage manualmente
 2. Tenta acessar `/appointments`
 3. ✅ ProtectedRoute detecta falta de auth

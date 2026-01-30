@@ -7,6 +7,7 @@ O sistema de autenticação foi implementado com sucesso no aplicativo "Seu Méd
 ## 🔐 Funcionalidades
 
 ### 1. **Página de Login** (`/login`)
+
 - Formulário de autenticação com validação de email e senha
 - Mensagens de erro personalizadas
 - Loading state durante o processo de autenticação
@@ -14,6 +15,7 @@ O sistema de autenticação foi implementado com sucesso no aplicativo "Seu Méd
 - Credenciais de teste exibidas na página
 
 ### 2. **Página de Registro** (`/register`)
+
 - Formulário completo para registro de novo usuário
 - Campos: Nome, Email, Telefone, CPF, Data de Nascimento, Senha
 - Validação de password match
@@ -22,22 +24,26 @@ O sistema de autenticação foi implementado com sucesso no aplicativo "Seu Méd
 - Link para voltar ao login
 
 ### 3. **Context de Autenticação** (`AuthContext.tsx`)
+
 - Gerenciamento global do estado de autenticação
 - Métodos: `login()`, `register()`, `logout()`
 - Persistência de dados no `localStorage`
 - Hook customizado `useAuth()` para acessar o contexto
 
 ### 4. **Rota Protegida** (`ProtectedRoute.tsx`)
+
 - Componente que protege rotas privadas
 - Redireciona usuários não autenticados para `/login`
 - Exibe loading state enquanto verifica autenticação
 
 ### 5. **Integração no Perfil do Usuário**
+
 - Botão "Sair da Conta" com confirmação via dialog
 - Logout funcional com redirect para login
 - Exibição de informações do usuário autenticado
 
 ### 6. **Página Inicial Atualizada**
+
 - Exibe nome do usuário autenticado
 - Avatar com primeira letra do nome
 
@@ -57,6 +63,7 @@ O sistema de autenticação foi implementado com sucesso no aplicativo "Seu Méd
 ### Estrutura de Dados
 
 #### Usuário
+
 ```typescript
 interface User {
   id: string;
@@ -70,6 +77,7 @@ interface User {
 ```
 
 #### Context Auth
+
 ```typescript
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -77,7 +85,7 @@ interface AuthContextType {
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
-  register: (user: Omit<User, 'id'> & { password: string }) => Promise<void>;
+  register: (user: Omit<User, "id"> & { password: string }) => Promise<void>;
 }
 ```
 
@@ -88,16 +96,18 @@ Para testar o sistema:
 - **Email:** `demo@email.com`
 - **Senha:** `123456`
 
-*Nota: As credenciais de teste são aceitas para qualquer email. O sistema atualmente usa simulação de autenticação.*
+_Nota: As credenciais de teste são aceitas para qualquer email. O sistema atualmente usa simulação de autenticação._
 
 ## 🔧 Validações Implementadas
 
 ### Login
+
 - ✅ Email obrigatório
 - ✅ Email no formato válido (@)
 - ✅ Senha obrigatória
 
 ### Registro
+
 - ✅ Nome obrigatório
 - ✅ Email obrigatório e no formato válido
 - ✅ Senha mínimo 6 caracteres
@@ -111,7 +121,7 @@ Para testar o sistema:
 - **Token de autenticação:** localStorage (`authToken`)
 - **Dados do usuário:** localStorage (`user` - JSON serializado)
 
-*Nota: Para produção, implementar autenticação com backend real e usar tokens JWT com refresh token.*
+_Nota: Para produção, implementar autenticação com backend real e usar tokens JWT com refresh token._
 
 ## 🛡️ Segurança
 
@@ -137,12 +147,14 @@ Melhorias recomendadas para produção:
 ## 📂 Arquivos Criados/Modificados
 
 ### Criados
+
 - `src/contexts/AuthContext.tsx` - Context de autenticação
 - `src/components/ProtectedRoute.tsx` - Componente para rotas protegidas
 - `src/pages/Login.tsx` - Página de login
 - `src/pages/Register.tsx` - Página de registro
 
 ### Modificados
+
 - `src/App.tsx` - Adicionado AuthProvider e rotas protegidas
 - `src/pages/Profile.tsx` - Integrado logout e dados do usuário
 - `src/pages/Index.tsx` - Exibe nome do usuário autenticado
@@ -150,12 +162,14 @@ Melhorias recomendadas para produção:
 ## 🧪 Teste o Sistema
 
 1. **Fazer Login**
+
    ```
    - Acesse http://localhost:5173/login
    - Use as credenciais de teste ou crie uma nova conta
    ```
 
 2. **Criar Conta**
+
    ```
    - Clique em "Crie uma agora" na página de login
    - Preencha o formulário

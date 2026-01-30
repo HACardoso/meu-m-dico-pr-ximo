@@ -1,6 +1,7 @@
 # ✅ Checklist de Testes - Sistema de Autenticação
 
 ## 🎯 Objetivo
+
 Validar que todos os aspectos do sistema de autenticação estão funcionando corretamente.
 
 ---
@@ -10,6 +11,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 1. Página de Login
 
 #### 1.1 Carregamento e Layout
+
 - [ ] Página carrega sem erros
 - [ ] Logo e título aparecem
 - [ ] Campo de email visível
@@ -21,6 +23,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Animações funcionam ao carregar
 
 #### 1.2 Funcionalidade de Login
+
 - [ ] Login com credenciais corretas funciona
   - Email: `demo@email.com`
   - Senha: `123456`
@@ -31,6 +34,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Pode fazer login com senha diferente
 
 #### 1.3 Validações
+
 - [ ] Erro ao tentar login sem email
 - [ ] Erro ao tentar login sem senha
 - [ ] Erro ao usar email sem @
@@ -39,6 +43,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Toast/Alert para erro visível
 
 #### 1.4 Estados de Loading
+
 - [ ] Botão desabilitado durante login
 - [ ] Spinner/loader aparece
 - [ ] Texto muda para "Entrando..."
@@ -51,6 +56,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 2. Página de Registro
 
 #### 2.1 Carregamento e Layout
+
 - [ ] Página carrega sem erros
 - [ ] Link "Voltar para login" visível
 - [ ] Todos os 7 campos aparecem:
@@ -67,6 +73,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Animações funcionam
 
 #### 2.2 Funcionalidade de Registro
+
 - [ ] Pode preencher todos os campos
 - [ ] Registro bem-sucedido cria usuário
 - [ ] Redireciona para `/` após registro
@@ -76,6 +83,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Pode criar múltiplos usuários
 
 #### 2.3 Validações de Registro
+
 - [ ] Erro se nome vazio
 - [ ] Erro se email vazio
 - [ ] Erro se email inválido
@@ -89,6 +97,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Mensagens de erro claras
 
 #### 2.4 Estados de Loading
+
 - [ ] Botão desabilitado durante registro
 - [ ] Spinner/loader aparece
 - [ ] Texto muda para "Registrando..."
@@ -99,6 +108,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 3. Autenticação e Contexto
 
 #### 3.1 Context AuthProvider
+
 - [ ] AuthProvider funciona
 - [ ] isAuthenticated muda após login
 - [ ] user objeto é populado
@@ -107,6 +117,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Contexto acessível em todos componentes
 
 #### 3.2 Persistência
+
 - [ ] Refresh de página mantém login
 - [ ] localStorage.user existe
 - [ ] localStorage.authToken existe
@@ -115,6 +126,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Logout limpa localStorage
 
 #### 3.3 Hook useAuth
+
 - [ ] useAuth() retorna objeto correto
 - [ ] `isAuthenticated` boolean funciona
 - [ ] `user` objeto correto
@@ -128,6 +140,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 4. Rotas Protegidas
 
 #### 4.1 ProtectedRoute Component
+
 - [ ] Componente existe e funciona
 - [ ] Exibe loading durante verificação
 - [ ] Redireciona não autenticados para `/login`
@@ -139,6 +152,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] ProtectedRoute em Profile funciona
 
 #### 4.2 Acesso sem Autenticação
+
 - [ ] Acesso a `/` sem auth redireciona `/login`
 - [ ] Acesso a `/search` sem auth redireciona `/login`
 - [ ] Acesso a `/doctor/:id` sem auth redireciona
@@ -147,6 +161,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Loading spinner aparece durante verificação
 
 #### 4.3 Acesso com Autenticação
+
 - [ ] `/` carrega corretamente
 - [ ] `/search` carrega corretamente
 - [ ] `/doctor/:id` carrega corretamente
@@ -159,6 +174,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 5. Página Home (Index)
 
 #### 5.1 Dados do Usuário
+
 - [ ] Exibe nome correto do usuário
 - [ ] Primeiro nome exibido corretamente
 - [ ] Avatar com primeira letra do nome
@@ -167,6 +183,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Clique no avatar vai para `/profile`
 
 #### 5.2 Layout
+
 - [ ] Header com gradient funciona
 - [ ] Barra de busca aparece
 - [ ] Categorias rápidas aparecem
@@ -179,6 +196,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 6. Página de Perfil
 
 #### 6.1 Dados do Usuário
+
 - [ ] Nome do usuário exibido
 - [ ] Email do usuário exibido
 - [ ] Telefone do usuário exibido
@@ -187,6 +205,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Todos dados corretomente formatados
 
 #### 6.2 Editar Perfil
+
 - [ ] Botão "Editar" funciona
 - [ ] Dialog abre ao clicar
 - [ ] Campos preenchidos com dados atuais
@@ -200,6 +219,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Toast confirma atualização
 
 #### 6.3 Menu de Opções
+
 - [ ] Menu items aparecem:
   - [ ] Notificações
   - [ ] Privacidade
@@ -212,12 +232,14 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Todos itens clicáveis
 
 #### 6.4 Switch de Notificações
+
 - [ ] Switch de notificações aparece
 - [ ] Pode ativar/desativar
 - [ ] Estado persiste (no app)
 - [ ] Label correto
 
 #### 6.5 Logout
+
 - [ ] Botão "Sair da Conta" visível
 - [ ] Botão tem cor vermelha (destructive)
 - [ ] Clique abre AlertDialog
@@ -235,6 +257,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ### 7. Navegação
 
 #### 7.1 Bottom Navigation
+
 - [ ] Bottom Navigation aparece em todas páginas
 - [ ] 4 ícones visíveis: Home, Search, Calendar, User
 - [ ] Labels corretos
@@ -247,6 +270,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Responsive design (mobile)
 
 #### 7.2 Links de Autenticação
+
 - [ ] Login → "Crie uma agora" leva para `/register`
 - [ ] Register → "Voltar para login" leva para `/login`
 - [ ] Register → "Faça login" leva para `/login`
@@ -256,6 +280,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ## 🔒 Testes de Segurança
 
 #### 8.1 localStorage
+
 - [ ] authToken é uma string
 - [ ] user é um JSON válido
 - [ ] Ambos removidos após logout
@@ -263,6 +288,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Verificar estrutura de user
 
 #### 8.2 Validações
+
 - [ ] Email deve conter @
 - [ ] Senha mínimo 6 caracteres
 - [ ] CPF mínimo 11 caracteres
@@ -270,6 +296,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Confirmação de senha funciona
 
 #### 8.3 Estado de Autenticação
+
 - [ ] isAuthenticated é boolean
 - [ ] user é null ou objeto
 - [ ] loading funciona corretamente
@@ -280,6 +307,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ## 🎨 Testes de UI/UX
 
 #### 9.1 Animações
+
 - [ ] Página login anima ao carregar
 - [ ] Página register anima ao carregar
 - [ ] Botões têm hover effect
@@ -288,6 +316,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Sem lag perceptível
 
 #### 9.2 Design
+
 - [ ] Cores consistentes (azul/indigo)
 - [ ] Tipografia correta
 - [ ] Espaçamento adequado
@@ -296,6 +325,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Shadows/elevações OK
 
 #### 9.3 Responsividade
+
 - [ ] Funciona em mobile (< 600px)
 - [ ] Funciona em tablet (600-1024px)
 - [ ] Funciona em desktop (> 1024px)
@@ -304,6 +334,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Sem texto cortado
 
 #### 9.4 Acessibilidade
+
 - [ ] Labels em todos inputs
 - [ ] Buttons têm tipo correto
 - [ ] Keyboard navigation funciona
@@ -316,6 +347,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 ## 🧪 Casos de Uso Completos
 
 ### Caso 1: Novo Usuário - Registro
+
 - [ ] Acessa `/login`
 - [ ] Clica "Crie uma agora"
 - [ ] Vai para `/register`
@@ -331,6 +363,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] localStorage limpo
 
 ### Caso 2: Usuário Existente - Login
+
 - [ ] Acessa `/login`
 - [ ] Preenche email: `demo@email.com`
 - [ ] Preencha senha: `123456`
@@ -346,6 +379,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Logout funciona
 
 ### Caso 3: Tentativa de Acesso sem Login
+
 - [ ] Limpa localStorage manualmente
 - [ ] Tenta acessar `/`
 - [ ] Redireciona para `/login`
@@ -356,6 +390,7 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 - [ ] Loading spinner aparece brevemente
 
 ### Caso 4: Erro de Validação
+
 - [ ] Tenta login com email inválido
 - [ ] Mensagem de erro aparece
 - [ ] Continua na página de login
@@ -369,16 +404,16 @@ Validar que todos os aspectos do sistema de autenticação estão funcionando co
 
 ## 📊 Métricas de Qualidade
 
-| Critério | Status | Notas |
-|---|---|---|
-| **Funcionalidade** | ✅ | Todas funcionalidades implementadas |
-| **Design** | ✅ | Responsivo e moderno |
-| **Segurança** | ✅ | Validações implementadas |
-| **Performance** | ✅ | Sem lag perceptível |
-| **UX** | ✅ | Feedback visual claro |
-| **Código** | ✅ | TypeScript, modular |
-| **Documentação** | ✅ | Completa e clara |
-| **Testes** | ✅ | Casos cobertos |
+| Critério           | Status | Notas                               |
+| ------------------ | ------ | ----------------------------------- |
+| **Funcionalidade** | ✅     | Todas funcionalidades implementadas |
+| **Design**         | ✅     | Responsivo e moderno                |
+| **Segurança**      | ✅     | Validações implementadas            |
+| **Performance**    | ✅     | Sem lag perceptível                 |
+| **UX**             | ✅     | Feedback visual claro               |
+| **Código**         | ✅     | TypeScript, modular                 |
+| **Documentação**   | ✅     | Completa e clara                    |
+| **Testes**         | ✅     | Casos cobertos                      |
 
 ---
 
@@ -397,11 +432,11 @@ Se todos os testes passarem:
 
 ## 📝 Notas de Teste
 
-- **Data:** _____________
-- **Testador:** _____________
-- **Navegador:** _____________
-- **Sistema Operacional:** _____________
-- **Observações:** _____________
+- **Data:** ******\_******
+- **Testador:** ******\_******
+- **Navegador:** ******\_******
+- **Sistema Operacional:** ******\_******
+- **Observações:** ******\_******
 
 ---
 
@@ -409,11 +444,11 @@ Se todos os testes passarem:
 
 - **Todos os testes passaram?** [ ] SIM [ ] NÃO
 - **Pronto para produção?** [ ] SIM [ ] NÃO
-- **Bugs encontrados:** ___________________
-- **Melhorias sugeridas:** ___________________
+- **Bugs encontrados:** ********\_\_\_********
+- **Melhorias sugeridas:** ********\_\_\_********
 
 ---
 
 **Obrigado por testar! 🎉**
 
-*Qualidade é importante - teste tudo!*
+_Qualidade é importante - teste tudo!_
